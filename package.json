@@ -1,0 +1,26 @@
+{
+  "name": "inventories",
+  "version": "1.0.0",
+  "description": "Owlbear Rodeo Inventory Management Extension",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["owlbear-rodeo", "extension", "inventory"],
+  "author": "Zevankai",
+  "license": "MIT",
+  "dependencies": {
+    "@owlbear-rodeo/sdk": "^3.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.4",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2"
+  }
+}

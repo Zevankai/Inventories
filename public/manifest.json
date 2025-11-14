@@ -1,0 +1,26 @@
+{
+  "name": "Inventory Management",
+  "version": "1.0.0",
+  "manifest_version": 1,
+  "id": "com.zevankai.inventory",
+  "author": "Zevankai",
+  "description": "A comprehensive inventory management system for Owlbear Rodeo with pack system, equipment slots, currency, external storage, and more.",
+  "icon": "/icon.svg",
+  "action": {
+    "title": "Inventory",
+    "icon": "/icon.svg",
+    "popover": "/index.html"
+  },
+  "context_menu": [
+    {
+      "id": "open-inventory",
+      "label": "Inventory",
+      "icons": [
+        {
+          "icon": "/icon.svg",
+          "label": "Open Inventory"
+        }
+      ]
+    }
+  ]
+}
