@@ -24,9 +24,10 @@ import ExternalStorageTab from './components/ExternalStorageTab';
 import GlobalSearchTab from './components/GlobalSearchTab';
 import InfoTab from './components/InfoTab';
 import DMScreen from './components/DMScreen';
+import TransferTab from './components/TransferTab';
 import './App.css';
 
-type Tab = 'pack' | 'body' | 'quick-slots' | 'coins' | 'external' | 'search' | 'info' | 'dm';
+type Tab = 'pack' | 'body' | 'quick-slots' | 'coins' | 'external' | 'search' | 'info' | 'transfer' | 'dm';
 
 const App: React.FC = () => {
   const [currentTokenId, setCurrentTokenId] = useState<string | null>(null);
@@ -199,12 +200,22 @@ const App: React.FC = () => {
         >
           Coins
         </button>
-        <button 
-          className={activeTab === 'external' ? 'active' : ''}
-          onClick={() => setActiveTab('external')}
-        >
-          External Storage
-        </button>
+        {!viewingExternalStorage && (
+          <button 
+            className={activeTab === 'external' ? 'active' : ''}
+            onClick={() => setActiveTab('external')}
+          >
+            External Storage
+          </button>
+        )}
+        {viewingExternalStorage && (
+          <button 
+            className={activeTab === 'transfer' ? 'active' : ''}
+            onClick={() => setActiveTab('transfer')}
+          >
+            Transfer
+          </button>
+        )}
         <button 
           className={activeTab === 'search' ? 'active' : ''}
           onClick={() => setActiveTab('search')}
@@ -282,6 +293,18 @@ const App: React.FC = () => {
             storageTypes={storageTypes}
             onUpdate={saveInventory}
             onView={loadExternalStorage}
+          />
+        )}
+        {activeTab === 'transfer' && viewingExternalStorage && currentStorage && (
+          <TransferTab
+            playerInventory={inventory}
+            storage={currentStorage}
+            onUpdate={(playerInv, storageInv) => {
+              const newStorages = inventory.externalStorages.map(s => 
+                s.id === viewingExternalStorage ? { ...s, inventory: storageInv } : s
+              );
+              saveInventory({ ...playerInv, externalStorages: newStorages });
+            }}
           />
         )}
         {activeTab === 'search' && (

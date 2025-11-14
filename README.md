@@ -105,11 +105,30 @@ A comprehensive inventory management system for Owlbear Rodeo with advanced feat
 3. Build the extension: `npm run build`
 4. The built extension will be in the `dist` folder
 
+## Deployment to Owlbear Rodeo
+
+### Option 1: Use the Owlbear Rodeo Extension Store (Recommended)
+1. Build the extension following the installation steps above
+2. The `dist` folder contains all necessary files
+3. Submit to the Owlbear Rodeo extension store following their guidelines
+
+### Option 2: Self-Host
+1. Build the extension: `npm run build`
+2. Upload the contents of the `dist` folder to a web server (e.g., GitHub Pages, Netlify)
+3. In Owlbear Rodeo, go to Extensions and add the URL to your `manifest.json`
+4. The extension will load from your hosted location
+
+### Option 3: Local Development/Testing
+1. Start the dev server: `npm run dev`
+2. Note the local URL (typically `http://localhost:5173`)
+3. In Owlbear Rodeo, add this as a custom extension URL
+4. Changes will hot-reload automatically
+
 ## Development
 
-- `npm run dev` - Start development server
+- `npm run dev` - Start development server with hot reload
 - `npm run build` - Build for production
-- `npm run preview` - Preview production build
+- `npm run preview` - Preview production build locally
 
 ## Usage
 
